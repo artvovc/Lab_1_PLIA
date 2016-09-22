@@ -40,10 +40,10 @@ verisori(X,Y):- parinti(M1,T1,X),parinti(M2,T2,Y),
           frati(T1,M2);
           frati(T1,T2)
 	),X\=Y,not(frati(X,Y)).
-verisori(_,_).
-bunici(X,Y):- parinti(X,Y,Z),(parinti(Z,_,_);parinti(_,Z,_)).
-bunica(X):- bunici(X,_).
-bunel(X):-bunici(_,X).
+
+bunici(X,Y,N):- parinti(X,Y,Z),(parinti(Z,_,N);parinti(_,Z,N)).
+bunica(X,N):- bunici(X,_,N).
+bunel(X,N):-bunici(_,X,N).
 nepot(X):-parinti(M,T,X),(parinti(_,_,M);parinti(_,_,T)).
 casatoriti(X,Y):- parinti(X,Y,_).
 unchi(X,Y):-parinti(M,T,Y),
